@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+message UserRequest {
+  string name = 1;
+  int32 id = 2;
+  int32 phone_number = 3;
+}
+
+message UserResponse {
+    string message = 1;
+}
+
+service UserInfo {
+  // Sends a greeting
+  rpc GetUserMessage (UserRequest) returns (UserResponse) {}
+}
