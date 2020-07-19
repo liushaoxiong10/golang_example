@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+message LocalName {
+    string name = 1;
+}
+
+message LocalRotate{
+    int32 x = 1;
+    int32 y = 2;
+}
+
+service LocalTranslate{
+    rpc LocalRotateToName(stream LocalRotate) returns (LocalName){};
+    rpc GetMore(stream LocalRotate) returns (stream LocalName){};
+}
